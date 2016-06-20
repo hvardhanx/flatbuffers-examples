@@ -1,0 +1,28 @@
+namespace harsh.flat.test;
+
+enum NBA:byte { GSW = 1, CAV, TOR }
+union Any {TextureData, Texture}
+
+table TestAppend
+{
+    test_num:int;
+    test_num2:int;
+}
+
+table TextureData{
+    image_size:int (id:0);
+    image_data:[ubyte] (id:1);
+    image_test:short(id:3);
+    test_num2:int(id:2);
+}
+
+table Texture {
+    num_textures:short;
+    textures:[TextureData];
+    num_test:short=30;
+    num_test1:short (deprecated);
+    num_test2:short;
+    test_append:TestAppend;
+}
+
+root_type Texture;
